@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const Inicio = () => {
+const Login = () => {
   const { loginWithRedirect } = useAuth0();
 
   return ( 
@@ -37,4 +37,4 @@ const Inicio = () => {
   );
 }
 
-export default Inicio;
+export default Login;
