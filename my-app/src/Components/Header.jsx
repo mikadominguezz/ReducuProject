@@ -15,14 +15,39 @@ function Header({logout}) {
             </div>
 
             {/* Search bar */}
-            <form class="d-flex" role="search" style={{width: "50rem", height: "3rem", marginTop: "1rem"}}>
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" role="search" style={{width: "50rem", height: "2.5rem", marginTop: "1rem"}}>
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{
+                    borderRadius: '50px',
+                    padding: '0.5rem 1rem',
+                    }}>
+                </input>
+                <button class="btn" type="submit" style={{
+                    borderRadius: '50px',
+                    border: "none",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0.5rem',
+                    }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                        <path d="M21 21l-6 -6" />
+                        </svg>
+                </button>
             </form>
 
+
             {/* Botón Sing out */}
-            <div className="border-bottom border-light" style={{marginTop: "1.5rem", marginRight:"20px"}}>
-                <button className="btn btn-danger" onClick={() => logout({ returnTo: window.location.origin })}>
+            <div className="border-bottom border-light" style={{
+                marginTop: "1.5rem",
+                marginRight:"20px"
+                }}>
+                <button className="btn text-white" onClick={() => logout({ returnTo: window.location.origin })} style={{
+                    fontFamily: 'Open Sans, sans-serif',
+                    backgroundColor: "#173363",
+                    paddingLeft: "10px"
+                }}>
                     Sign out
                 </button>
             </div>

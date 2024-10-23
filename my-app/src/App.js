@@ -4,6 +4,12 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
+import Menu from './Components/Menu';
+import Likes from './Pages/Likes';
+import Posts from './Pages/Posts';
+import Comments from './Pages/Comments';
+import 'bootstrap/dist/css/bootstrap.min.css';  // Importa los estilos de Bootstrap
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Importa el JS de Bootstrap y Popper.js
 import './App.css';
 
 function App() {
@@ -15,10 +21,17 @@ function App() {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home user={user} logout={logout} />} />
-      </Routes>
+      <div>
+        <Menu />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/likes" element={<Likes />} />
+          <Route path="/posts" element={<Posts />} />
+          <Route path="/comments" element={<Comments />} />
+        </Routes>
+      </div>
     </Router>
+
   );
 }
 
