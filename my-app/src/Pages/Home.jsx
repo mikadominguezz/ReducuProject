@@ -3,9 +3,9 @@ import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 
-function Home({ logout }) {
+function Home() {
   return (
-    <div className='grid-container' style={{
+    <div style={{
       display: 'grid',
       gridTemplateColumns: '200px 1fr 150px',
       gridTemplateRows: 'auto 1fr auto',
@@ -16,13 +16,7 @@ function Home({ logout }) {
       boxSizing: 'border-box'
     }}>
       {/* Header */}
-      <div style={{
-        gridColumn: '1 / 4',
-        height: '150px',
-        backgroundColor: '#667895'
-      }}>
-        <Header></Header>
-      </div>
+      <Header></Header>
 
       {/* Menu options */}
       <Menu></Menu>
@@ -38,17 +32,13 @@ function Home({ logout }) {
       </div>
 
       {/* Right Sidebar */}
-      <RightSidebar></RightSidebar>
-
-      {/* Footer */}
-      {/* <div style={{
-        gridColumn: '1 / 4',
-        backgroundColor: '#dcdcdc',
-        textAlign: 'center',
-        padding: '10px'
+      <div style={{
+        display: 'flex',
+        alignItems: 'end'
       }}>
-        Footer
-      </div> */}
+        <RightSidebar></RightSidebar>
+      </div>
+      
     </div>
   );
 }

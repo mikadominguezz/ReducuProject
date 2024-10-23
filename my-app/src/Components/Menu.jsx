@@ -1,22 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Menu({ logout }) {
+    const navigate = useNavigate();
+    const handleGoBack = () => {
+        setTimeout(() => {
+            navigate("/");
+        },); 
+    };
   return (
     <div>
       <div style={{
-        gridRow: '2 / 3',
-        padding: '10px'
-      }}>
+            gridColumn: '3 / 4',
+            gridRow: '2 / 3',
+            padding: '10px',
+            backgroundColor: '#667895',
+            fontFamily: 'Open Sans, sans-serif'
+        }}>
         {/* Botón Home */}
         <button className="btn text-white" style={{
           paddingLeft: "4.3rem",
           paddingRight: "4.3rem",
           border: "none",
-          background: "transparent",
-          fontFamily: 'Open Sans, sans-serif'
+          background: "transparent"
         }}
-          onClick={() => window.open('https://www.instagram.com/ucuoficial/', '_blank')}
+            onClick={() => handleGoBack()}
         >
           Home
         </button>
@@ -27,8 +36,7 @@ function Menu({ logout }) {
           paddingLeft: "3.4rem",
           paddingRight: "3.4rem",
           border: "none",
-          background: "transparent",
-          fontFamily: 'Open Sans, sans-serif'
+          background: "transparent"
         }}>
           <button className="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
             Profile

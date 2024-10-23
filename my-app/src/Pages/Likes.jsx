@@ -1,22 +1,46 @@
 import React from 'react';
+import Header from "../Components/Header";
+import Menu from '../Components/Menu';
+import RightSidebar from '../Components/RightSidebar';
 
-function Likes({ logout }) {
+function Likes() {
   return (
-    <div>
-        <h2>Likes Component</h2>
-        <div className="border-bottom border-light" style={{
-            marginTop: "1.5rem",
-            marginRight:"20px"
+    <div style={{
+        display: 'grid',
+        gridTemplateColumns: '200px 1fr 150px',
+        gridTemplateRows: 'auto 1fr auto',
+        gap: '10px',
+        backgroundColor: '#667895',
+        height: '100vh',
+        padding: '0px',
+        boxSizing: 'border-box'
+      }}>
+        <Header></Header>
+
+        <Menu></Menu>
+
+        {/* Main */}
+        <div style={{
+            gridColumn: '2 / 3',
+            gridRow: '2 / 3',
+            backgroundColor: 'white',
+            padding: '10px',
+            fontFamily: 'Open Sans, sans-serif'
+        }}>
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center'
             }}>
-            <button className="btn text-white" onClick={() => logout({ returnTo: window.location.origin })} style={{
-                fontFamily: 'Open Sans, sans-serif',
-                backgroundColor: "#173363",
-                paddingLeft: "10px"
-            }}>
-                Sign out
-            </button>
+                <h2>Things You've Liked</h2>
+            </div>
         </div>
 
+        <div style={{
+            display: 'flex',
+            alignItems: 'end'
+        }}>
+            <RightSidebar></RightSidebar>
+        </div>
     </div>
   );
 }

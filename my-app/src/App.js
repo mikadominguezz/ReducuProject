@@ -22,7 +22,6 @@ function App() {
   return (
     <Router>
       <div>
-        <Menu />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/likes" element={<Likes />} />

@@ -1,9 +1,15 @@
 import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function Header({logout}) {
-    
+function Header() {
+    const {logout} = useAuth0();
+
   return (
-    <div className='grid-container'>
+    <div className='grid-container' style={{
+        gridColumn: '1 / 4',
+        height: '150px',
+        backgroundColor: '#667895'
+    }}>
         {/* Header */}
         <div className="d-flex justify-content-between">
             {/* Reducu + Logo */}
