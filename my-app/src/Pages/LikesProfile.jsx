@@ -3,7 +3,7 @@ import Header from "../Components/Header";
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 
-function Likes() {
+function LikesProfile() {
   return (
     <div style={{
         display: 'grid',
@@ -25,7 +25,8 @@ function Likes() {
             gridRow: '2 / 3',
             backgroundColor: 'white',
             padding: '10px',
-            fontFamily: 'Open Sans, sans-serif'
+            fontFamily: 'Open Sans, sans-serif',
+            borderRadius:'20px'
         }}>
             <div style={{
                 display: 'flex',
@@ -45,4 +46,4 @@ function Likes() {
   );
 }
 
-export default Likes;
+export default LikesProfile;

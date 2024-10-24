@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
-import Menu from './Components/Menu';
-import Likes from './Pages/Likes';
-import Posts from './Pages/PostsProfile';
-import Comments from './Pages/CommentsProfile';
+import LikesProfile from './Pages/LikesProfile';
+import PostsProfile from './Pages/PostsProfile';
+import CommentsProfile from './Pages/CommentsProfile';
 import MakePost from './Pages/MakePost';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Importa los estilos de Bootstrap
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Importa el JS de Bootstrap y Popper.js
@@ -25,10 +24,10 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/likes" element={<Likes />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/comments" element={<Comments />} />
-          <Route path="/makePosts" element={<MakePost />} />
+          <Route path="/likes" element={<LikesProfile />} />
+          <Route path="/posts" element={<PostsProfile />} />
+          <Route path="/comments" element={<CommentsProfile />} />
+          <Route path="/makePost" element={<MakePost />} />
         </Routes>
       </div>
     </Router>

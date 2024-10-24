@@ -26,7 +26,9 @@ function Home() {
         gridColumn: '2 / 3',
         gridRow: '2 / 3',
         backgroundColor: 'white',
-        padding: '10px'
+        padding: '10px',
+        fontFamily: 'Open Sans, sans-serif',
+        borderRadius:'20px'
       }}>
         Main Content
       </div>

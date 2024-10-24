@@ -16,8 +16,10 @@ function Comments() {
             }}>
             <div style={{
                 border: '2px solid black',
+                borderRadius:'10px',
+                gridColumn: '2 / 3',
                 width: '35rem',
-                height: '32rem'
+                height: '10rem'
             }}>
                 <div style={{
                     padding: "0.5rem"

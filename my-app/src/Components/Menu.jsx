@@ -26,7 +26,7 @@ function Menu() {
           border: "none",
           background: "transparent"
         }}
-            onClick={() => handleGoBack()}
+          onClick={() => handleGoBack()}
         >
           Home
         </button>

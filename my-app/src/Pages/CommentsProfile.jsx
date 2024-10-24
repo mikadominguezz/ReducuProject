@@ -2,7 +2,7 @@ import React from 'react';
 import Header from "../Components/Header";
 import Menu from "../Components/Menu";
 import RightSidebar from '../Components/RightSidebar';
-import Comments from '../Components/Comments';
+import Comment from '../Components/Comment';
 
 function CommentsProfile() {
   return (
@@ -26,17 +26,18 @@ function CommentsProfile() {
             gridRow: '2 / 3',
             backgroundColor: 'white',
             padding: '10px',
-            fontFamily: 'Open Sans, sans-serif'
+            fontFamily: 'Open Sans, sans-serif',
+            borderRadius:'20px'
         }}>
             <div style={{
                 display: 'flex',
                 justifyContent: 'center'
             }}>
-                <h2>Comments You Made</h2>
+                <h2>Comments You've Made</h2>
             </div>
             
             {/* Comments */}
-            <Comments></Comments>
+            <Comment></Comment>
             
         </div>
 

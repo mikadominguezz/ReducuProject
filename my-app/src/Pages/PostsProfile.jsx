@@ -2,12 +2,9 @@ import React from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
-import PostsProfile from '../Components/Posts'
-import { useState } from "react";
-import Heart from "react-heart";
+import Post from '../Components/Post'
 
-function Posts() {
-    const [active, setActive] = useState(false);
+function PostsProfile() {
 
   return (
     <div style={{
@@ -30,17 +27,18 @@ function Posts() {
             gridRow: '2 / 3',
             backgroundColor: 'white',
             padding: '10px',
-            fontFamily: 'Open Sans, sans-serif'
+            fontFamily: 'Open Sans, sans-serif',
+            borderRadius:'20px'
         }}>
             <div style={{
                 display: 'flex',
                 justifyContent: 'center'
             }}>
-                <h2>Posts You Made</h2>
+                <h2>Posts You've Made</h2>
             </div>
             
             {/* Box */}
-            <Posts></Posts>
+            <Post></Post>
         </div>
 
         <div style={{
@@ -53,4 +51,4 @@ function Posts() {
   );
 }
 
-export default Posts;
+export default PostsProfile;

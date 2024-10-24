@@ -2,7 +2,7 @@ import React from 'react';
 import Heart from "react-heart";
 import { useState } from "react";
 
-function Comments() {
+function Posts() {
     const [active, setActive] = useState(false);
 
   return (
@@ -16,13 +16,20 @@ function Comments() {
             }}>
             <div style={{
                 border: '2px solid black',
+                borderRadius:'10px',
                 width: '35rem',
-                height: '10rem'
+                height: '32rem'
             }}>
                 <div style={{
                     padding: "0.5rem"
                 }}>
-                    <h3>Qué sueño</h3>
+                    <h4>Milano 2024💗</h4>
+                    <img src="/Images/IMG_8262602D684D-1.jpeg" alt="imagen de milan"
+                    style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "cover"
+                      }} />
                 </div>
                 
             </div>
@@ -51,4 +58,4 @@ function Comments() {
   );
 }
 
-export default Comments;
+export default Posts;
