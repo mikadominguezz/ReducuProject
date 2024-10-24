@@ -2,8 +2,13 @@ import React from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
+import PostsProfile from '../Components/Posts'
+import { useState } from "react";
+import Heart from "react-heart";
 
 function Posts() {
+    const [active, setActive] = useState(false);
+
   return (
     <div style={{
         display: 'grid',
@@ -33,6 +38,9 @@ function Posts() {
             }}>
                 <h2>Posts You Made</h2>
             </div>
+            
+            {/* Box */}
+            <Posts></Posts>
         </div>
 
         <div style={{

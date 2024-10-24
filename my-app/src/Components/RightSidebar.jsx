@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function RightSidebar() {
   return (
@@ -22,6 +23,8 @@ function RightSidebar() {
               <path d="M9 12h6" />
               <path d="M12 9v6" />
             </svg>
+            <Link to="/makePost"></Link>
+            {/* editar redireccionamiento */}
           </button>
         </div>
     </div>

@@ -6,8 +6,9 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import Menu from './Components/Menu';
 import Likes from './Pages/Likes';
-import Posts from './Pages/Posts';
-import Comments from './Pages/Comments';
+import Posts from './Pages/PostsProfile';
+import Comments from './Pages/CommentsProfile';
+import MakePost from './Pages/MakePost';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Importa los estilos de Bootstrap
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Importa el JS de Bootstrap y Popper.js
 import './App.css';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/likes" element={<Likes />} />
           <Route path="/posts" element={<Posts />} />
           <Route path="/comments" element={<Comments />} />
+          <Route path="/makePosts" element={<MakePost />} />
         </Routes>
       </div>
     </Router>

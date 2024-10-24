@@ -2,8 +2,9 @@ import React from 'react';
 import Header from "../Components/Header";
 import Menu from "../Components/Menu";
 import RightSidebar from '../Components/RightSidebar';
+import Comments from '../Components/Comments';
 
-function Comments() {
+function CommentsProfile() {
   return (
     <div style={{
         display: 'grid',
@@ -33,6 +34,10 @@ function Comments() {
             }}>
                 <h2>Comments You Made</h2>
             </div>
+            
+            {/* Comments */}
+            <Comments></Comments>
+            
         </div>
 
         <div style={{
@@ -45,4 +50,4 @@ function Comments() {
   );
 }
 
-export default Comments;
+export default CommentsProfile;
