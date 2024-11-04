@@ -18,8 +18,6 @@ function RightSidebar() {
         }}>
 
           <button style={{
-            display: 'flex',
-            justifyItems: 'end',
             padding: '0.5rem',
             background: "transparent",
             border: "none"

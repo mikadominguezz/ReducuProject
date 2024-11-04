@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Heart from "react-heart";
 import { useNavigate } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Comment({ imageUrl }) {
+    const { user, isAuthenticated, logout } = useAuth0();
     const [active, setActive] = useState(false);
     const navigate = useNavigate();
     
@@ -18,9 +20,28 @@ function Comment({ imageUrl }) {
             <div style={{
                     display: 'flex',
                     justifyContent: 'center',
-                    alignItems: 'center',
                     paddingTop: "10px"
                 }}>
+                
+                <button className="btn btn-primary"
+                    style={{
+                        display: 'flex',
+                        background: 'none',
+                        border: 'none',
+                        paddingRight: "10px"
+                    }}>
+                    <img 
+                        src={user.picture}
+                        alt="Profile"
+                        style={{
+                            width: "52px", 
+                            height: "52px", 
+                            borderRadius: "50%", 
+                            objectFit: "cover"
+                        }} 
+                    />
+                </button>
+
                 <div style={{
                     border: '2px solid black',
                     borderRadius:'10px',
@@ -49,7 +70,7 @@ function Comment({ imageUrl }) {
             {/* Likes & Comment(s) */}
             <div style={{
                     display: "flex",
-                    paddingLeft: "17rem",
+                    paddingLeft: "19rem",
                     gap: "0.5rem"
                 }}>
                 <div style={{width: "2rem", paddingTop:"0.35rem"}}>
