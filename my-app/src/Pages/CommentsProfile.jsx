@@ -19,7 +19,7 @@ function CommentsProfile() {
             </div>
             
             {/* Comments */}
-            <Comment showComment={true}/>
+            <Comment text={"hola"} showComment={true}/>
             
         </div>
 

@@ -3,7 +3,7 @@ import Heart from "react-heart";
 import { useNavigate } from 'react-router-dom';
 import { useAuth0 } from "@auth0/auth0-react";
 
-function Comment({ imageUrl, showComment }) {
+function Comment({ imageUrl, text, showComment }) {
     const { user } = useAuth0();
     const [active, setActive] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
@@ -55,9 +55,11 @@ function Comment({ imageUrl, showComment }) {
                     <div style={{
                         padding: "0.5rem"
                     }}>
-                        <h3>Qué sueño</h3>
+                        {/* Mostrar texto solo si está presente */}
+                        {text && <h3>{text}</h3>}
                     </div>
 
+                    {/* Mostrar imagen si se proporciona */}
                     {imageUrl && (
                         <img src={imageUrl} alt="imagen debajo del comentario"
                              style={{
