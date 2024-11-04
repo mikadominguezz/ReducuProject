@@ -14,10 +14,7 @@ function PostsProfile() {
 
         {/* Main */}
         <div className='main'>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
+            <div className='title'>
                 <h2>Posts You've Made</h2>
             </div>
             

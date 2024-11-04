@@ -9,6 +9,11 @@
     box-sizing: border-box;
 }  
 
+.title {
+    display: flex;
+    justify-content: center;
+}
+  
 .main {
     grid-column: 2 / 3;
     grid-row: 2 / 3;

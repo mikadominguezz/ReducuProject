@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Heart from "react-heart";
-import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-function Comments() {
+function Comment({ imageUrl }) {
     const [active, setActive] = useState(false);
     const navigate = useNavigate();
     
     const handleGoToCommentSection = () => {
         setTimeout(() => {
             navigate("/commentSection");
-        },); 
+        });
     };
 
     return (
@@ -25,7 +24,6 @@ function Comments() {
                 <div style={{
                     border: '2px solid black',
                     borderRadius:'10px',
-                    gridColumn: '2 / 3',
                     width: '35rem',
                     height: 'auto'
                 }}>
@@ -34,7 +32,17 @@ function Comments() {
                     }}>
                         <h3>Qué sueño</h3>
                     </div>
-                    
+
+                    {imageUrl && (
+                        <img src={imageUrl} alt="imagen debajo del comentario"
+                             style={{
+                                padding: "10px",
+                                 width: "100%",
+                                 height: "auto",
+                                 objectFit: "cover"
+                             }}
+                        />
+                    )}
                 </div>
             </div>
 
@@ -51,9 +59,9 @@ function Comments() {
                     border: "none",
                     background: "transparent"
                 }}
-                    onClick={() => handleGoToCommentSection()}
+                    onClick={handleGoToCommentSection}
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-circle" width="40" height="40" viewBox="0 0 24 24" stroke-width="1" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-circle" width="40" height="40" viewBox="0 0 24 24" strokeWidth="1" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                         <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
                     </svg>
@@ -63,4 +71,4 @@ function Comments() {
     );
 }
 
-export default Comments;
+export default Comment;

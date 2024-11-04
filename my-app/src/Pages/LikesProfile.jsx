@@ -12,10 +12,7 @@ function LikesProfile() {
 
         {/* Main */}
         <div className='main'>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
+            <div className='title'>
                 <h2>Things You've Liked</h2>
             </div>
         </div>

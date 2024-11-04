@@ -22,10 +22,7 @@ function CommentSection() {
 
         {/* Main */}
         <div className='main'>
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
+            <div className='title'>
                 <h2>Comment Section</h2>
             </div>
             
@@ -48,8 +45,12 @@ function CommentSection() {
                     }}>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
                     </div>
+                    {/* implementar diseño boton */}
                     <button>
-                        
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#667895" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
+                            <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path> 
+                        </svg> 
                     </button>
                 </div>
             </div>

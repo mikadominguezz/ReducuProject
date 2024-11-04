@@ -13,10 +13,7 @@ function MakePost() {
         {/* Main */}
         <div className='main'>
             {/* Title */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center'
-            }}>
+            <div className='title'>
                 <h2>Make a Post/Comment</h2>
             </div>
 
