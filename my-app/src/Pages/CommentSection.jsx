@@ -16,9 +16,9 @@ function CommentSection() {
     };
   return (
     <div className='webGeneral'>
-        <Header></Header>
+        <Header/>
 
-        <Menu></Menu>
+        <Menu/>
 
         {/* Main */}
         <div className='main'>
@@ -28,13 +28,14 @@ function CommentSection() {
             
             {/* Comments */}
             <div>
-                <Comment></Comment>
-                <Comment></Comment>
+                <Comment showComment={false}/>
+                <Comment showComment={false}/>
                 <div style={{
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    paddingTop: "10px"
+                    paddingTop: '10px',
+                    paddingLeft: '7rem'
                 }}>
                     <div style={{
                         border: '2px solid black',
@@ -45,12 +46,12 @@ function CommentSection() {
                     }}>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
                     </div>
-                    {/* implementar diseño boton */}
-                    <button>
-                        <svg 
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#667895" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" stroke-width="2">
-                            <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path> 
-                        </svg> 
+
+                    <button style={{
+                        background: 'none',
+                        border: 'none'
+                    }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#173363" stroke-linecap="round" stroke-linejoin="round" width="30" height="30" stroke-width="2"> <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path> </svg> 
                     </button>
                 </div>
             </div>
@@ -59,7 +60,7 @@ function CommentSection() {
         </div>
 
         <div className='rightSidebar'>
-            <RightSidebar></RightSidebar>
+            <RightSidebar/>
         </div>
     </div>
   );

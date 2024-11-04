@@ -7,7 +7,7 @@ function Posts() {
 
     return (
         <div>
-            <Comment imageUrl={"/Images/IMG_8262602D684D-1.jpeg"} />
+            <Comment imageUrl={"/Images/IMG_8262602D684D-1.jpeg"} showComment={true} />
         </div>
     );
 }
