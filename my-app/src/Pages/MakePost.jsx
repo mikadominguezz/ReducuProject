@@ -2,33 +2,16 @@ import React from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
-import { start } from '@popperjs/core';
 
 function MakePost() {
   return (
-    <div style={{
-        display: 'grid',
-        gridTemplateColumns: '200px 1fr 150px',
-        gridTemplateRows: 'auto 1fr auto',
-        gap: '10px',
-        backgroundColor: '#667895',
-        height: '100vh',
-        padding: '0px',
-        boxSizing: 'border-box'
-      }}>
+    <div className='webGeneral'>
         <Header></Header>
 
         <Menu></Menu>
 
         {/* Main */}
-        <div style={{
-            gridColumn: '2 / 3',
-            gridRow: '2 / 3',
-            backgroundColor: 'white',
-            padding: '10px',
-            fontFamily: 'Open Sans, sans-serif',
-            borderRadius:'20px'
-        }}>
+        <div className='main'>
             {/* Title */}
             <div style={{
                 display: 'flex',
@@ -62,16 +45,12 @@ function MakePost() {
                             borderRadius:'10px',
                             gridColumn: '2 / 3',
                             width: '30rem',
-                            height: '15rem'
+                            height: '14.7rem'
                         }}>
-                            <div style={{
-                                padding: "0.5rem"
-                            }}>
-                                <h5 style={{opacity:'40%'}}>Comment...</h5>
-                            </div>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="9"></textarea>
                         </div>
                     </div>
-                    
+
                     {/* Add Picture button */}
                     <div style={{
                         display: 'flex',
@@ -79,7 +58,7 @@ function MakePost() {
                         alignItems: 'center',
                         paddingTop: "10px"
                     }}>
-                        
+
                         <button style={{
                             border: '2px solid black',
                             borderRadius:'10px',
@@ -115,17 +94,14 @@ function MakePost() {
                                 backgroundColor: "#173363",
                             }}>
                                 Post
-                        </button> 
+                        </button>
                     </div>
 
                 </div>
             </div>
         </div>
 
-        <div style={{
-            display: 'flex',
-            alignItems: 'end'
-        }}>
+        <div className='rightSidebar'>
             <RightSidebar></RightSidebar>
         </div>
     </div>

@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
+import '../Components/Style.css';
+import Comment from '../Components/Comment';
+import {posts} from '../Data/hardCoded';
 
 function Home() {
+  //const [posts, setPosts] = useState(posts);
+
+  useEffect(()=>{
+    console.log('posts', posts)
+  },[])
   return (
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: '200px 1fr 150px',
-      gridTemplateRows: 'auto 1fr auto',
-      gap: '10px',
-      backgroundColor: '#667895',
-      height: '100vh',
-      padding: '0px',
-      boxSizing: 'border-box'
-    }}>
+    <div className='webGeneral'>
+      {/* IMPLEMENTAR STYLE */}
+      
       {/* Header */}
       <Header></Header>
 
@@ -22,22 +23,14 @@ function Home() {
       <Menu></Menu>
       
       {/* Main */}
-      <div style={{
-        gridColumn: '2 / 3',
-        gridRow: '2 / 3',
-        backgroundColor: 'white',
-        padding: '10px',
-        fontFamily: 'Open Sans, sans-serif',
-        borderRadius:'20px'
-      }}>
+      <div className='main'>
         Main Content
+        {/* IMPLEMENTAR CHILDREN */}
+        {/* van a aparecer todos los posts */}
       </div>
 
       {/* Right Sidebar */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'end'
-      }}>
+      <div className='rightSidebar'>
         <RightSidebar></RightSidebar>
       </div>
       

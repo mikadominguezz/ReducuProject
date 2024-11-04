@@ -8,6 +8,7 @@ import LikesProfile from './Pages/LikesProfile';
 import PostsProfile from './Pages/PostsProfile';
 import CommentsProfile from './Pages/CommentsProfile';
 import MakePost from './Pages/MakePost';
+import CommentSecion from './Pages/CommentSection';
 import 'bootstrap/dist/css/bootstrap.min.css';  // Importa los estilos de Bootstrap
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';  // Importa el JS de Bootstrap y Popper.js
 import './App.css';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/posts" element={<PostsProfile />} />
           <Route path="/comments" element={<CommentsProfile />} />
           <Route path="/makePost" element={<MakePost />} />
+          <Route path="/commentSection" element={<CommentSecion />} />
         </Routes>
       </div>
     </Router>

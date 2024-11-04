@@ -5,9 +5,9 @@ function RightSidebar() {
   const navigate = useNavigate();
     
   const handleGoToMakePost = () => {
-      setTimeout(() => {
-          navigate("/makePost");
-      },); 
+    setTimeout(() => {
+        navigate("/makePost");
+    },); 
   };
   return (
     <div>

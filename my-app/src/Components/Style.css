@@ -1,0 +1,43 @@
+.webGeneral {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    background-color: #667895;
+    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}  
+
+.main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-color: white;
+    padding: 10px;
+    font-family: Open Sans, sans-serif;
+    border-radius: 20px;
+    overflow-y: scroll;
+}
+
+.main::-webkit-scrollbar {
+    width: 10px;
+}
+
+.main::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.rightSidebar {
+    display: flex;
+    align-items: end;
+}
