@@ -4,7 +4,6 @@ import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 
 function MakePost({ image, text }) {
-    // Verificar si el botón de "Post" debe estar habilitado
     const canPost = (text && text.trim() !== "") || image;
 
     return (
