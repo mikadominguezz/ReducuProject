@@ -1,9 +1,9 @@
 import React from 'react';
 import '../App.css';
-import Header from "../Components/Header";
-import Menu from "../Components/Menu";
-import RightSidebar from '../Components/RightSidebar';
-import Comment from '../Components/Comment';
+import Header from "./Header";
+import Menu from "./Menu";
+import RightSidebar from './RightSidebar';
+import Comment from './Comment';
 import { useNavigate } from 'react-router-dom';
 
 function CommentSection() {
@@ -15,15 +15,11 @@ function CommentSection() {
         },); 
     };
   return (
-    <div className='webGeneral'>
-        <Header/>
-
-        <Menu/>
-
+    <div>
         {/* Main */}
         <div className='main'>
-            <div className='title'>
-                <h2>Comment Section</h2>
+            <div className='subtitle'>
+                <h4>Comment Section</h4>
             </div>
             
             {/* Comments */}
@@ -57,10 +53,6 @@ function CommentSection() {
             </div>
             
             
-        </div>
-
-        <div className='rightSidebar'>
-            <RightSidebar/>
         </div>
     </div>
   );

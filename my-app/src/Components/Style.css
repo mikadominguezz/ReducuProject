@@ -13,6 +13,11 @@
     display: flex;
     justify-content: center;
 }
+.subtitle {
+    display: flex;
+    justify-content: start;
+    padding-left: 17rem;
+}
   
 .main {
     grid-column: 2 / 3;

@@ -8,23 +8,23 @@ function PostsProfile() {
 
   return (
     <div className='webGeneral'>
-        <Header></Header>
+      <Header></Header>
 
-        <Menu></Menu>
+      <Menu></Menu>
 
-        {/* Main */}
-        <div className='main'>
-            <div className='title'>
-                <h2>Posts You've Made</h2>
-            </div>
-            
-            {/* Box */}
-            <Post></Post>
+      {/* Main */}
+      <div className='main'>
+        <div className='title'>
+            <h2>Posts You've Made</h2>
         </div>
+          
+        {/* Box */}
+        <Post></Post>
+      </div>
 
-        <div className='rightSidebar'>
-            <RightSidebar></RightSidebar>
-        </div>
+      <div className='rightSidebar'>
+          <RightSidebar></RightSidebar>
+      </div>
     </div>
   );
 }
