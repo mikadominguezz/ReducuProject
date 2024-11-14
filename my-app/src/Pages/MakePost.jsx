@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 
-function MakePost({ image, text }) {
+function MakePost({ initialImage, initialText }) {
+    const [text, setText] = useState(initialText || "");
+    const [image, setImage] = useState(initialImage || "");
+
     const canPost = (text && text.trim() !== "") || image;
 
     return (
@@ -52,11 +55,16 @@ function MakePost({ image, text }) {
                                 width: '30rem',
                                 height: '14.7rem'
                             }}>
-                                <textarea className="form-control" rows="9" value={text} readOnly></textarea>
+                                <textarea
+                                    className="form-control"
+                                    rows="9"
+                                    value={text}
+                                    onChange={(e) => setText(e.target.value)} // Manejo del texto
+                                />
                             </div>
                         </div>
 
-                        {/* Add Picture button */}
+                        {/* Add Picture input */}
                         <div style={{
                             display: 'flex',
                             justifyContent: 'center',
@@ -66,26 +74,19 @@ function MakePost({ image, text }) {
                             {image ? (
                                 <img src={image} alt="Post" style={{ width: "30rem", height: "auto", borderRadius: '10px' }} />
                             ) : (
-                                <button 
+                                <input
+                                    type="url"
+                                    placeholder="Enter image URL"
                                     style={{
                                         border: '2px solid black',
                                         borderRadius: '10px',
                                         width: '30rem',
-                                        height: '5rem',
-                                        background: 'transparent'
+                                        height: '3rem',
+                                        padding: '0.5rem'
                                     }}
-                                >
-                                    <div style={{ padding: '0.5rem' }}>
-                                        <h5 style={{
-                                            opacity: '40%',
-                                            display: 'flex',
-                                            justifyContent: 'start',
-                                            paddingBottom: '40px'
-                                        }}>
-                                            Add picture
-                                        </h5>
-                                    </div>
-                                </button>
+                                    value={image}
+                                    onChange={(e) => setImage(e.target.value)} // Manejo de la URL
+                                />
                             )}
                         </div>
 
