@@ -5,6 +5,7 @@ import RightSidebar from '../Components/RightSidebar';
 import '../Components/Style.css';
 import Comment from '../Components/Comment';
 import {posts} from '../Data/hardCoded';
+import BackButton from '../Components/BackButton';
 
 function Home() {
   //const [posts, setPosts] = useState(posts);
@@ -17,21 +18,24 @@ function Home() {
       {/* IMPLEMENTAR STYLE */}
       
       {/* Header */}
-      <Header></Header>
+      <Header/>
 
       {/* Menu options */}
-      <Menu></Menu>
+      <Menu/>
       
       {/* Main */}
       <div className='main'>
-        Main Content
+        <div className='title'>
+          <BackButton/>
+          <h2>Home</h2>
+        </div>
         {/* IMPLEMENTAR CHILDREN */}
         {/* van a aparecer todos los posts */}
       </div>
 
       {/* Right Sidebar */}
       <div className='rightSidebar'>
-        <RightSidebar></RightSidebar>
+        <RightSidebar/>
       </div>
       
     </div>

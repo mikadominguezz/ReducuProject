@@ -11,8 +11,16 @@
 
 .title {
     display: flex;
-    justify-content: center;
-}
+    align-items: center; /* Alinea los elementos verticalmente */
+    justify-content: center; /* Centra el título */
+    position: relative; /* Necesario para posicionar el botón */
+  }
+  
+.backButton {
+    position: absolute;
+    left: 0;
+}  
+
 .subtitle {
     display: flex;
     justify-content: start;
@@ -50,4 +58,14 @@
 .rightSidebar {
     display: flex;
     align-items: end;
+}
+
+.visibleButtons{
+    font-family: Open Sans, sans-serif;
+    background: #173363;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }

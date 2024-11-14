@@ -3,29 +3,31 @@ import Header from "../Components/Header";
 import Menu from "../Components/Menu";
 import RightSidebar from '../Components/RightSidebar';
 import Comment from '../Components/Comment';
+import BackButton from '../Components/BackButton';
+import { start } from '@popperjs/core';
 
 function CommentsProfile() {
     
   return (
     <div className='webGeneral'>
-        <Header></Header>
+      <Header></Header>
 
-        <Menu></Menu>
+      <Menu></Menu>
 
-        {/* Main */}
-        <div className='main'>
-            <div className='title'>
-                <h2>Comments You've Made</h2>
-            </div>
-            
-            {/* Comments */}
-            <Comment text={"hola"} showComment={true}/>
-            
+      {/* Main */}
+      <div className='main'>
+        <div className='title'>
+          <BackButton/>
+          <h2>Comments You've Made</h2>
         </div>
+          
+        {/* Comments */}
+        <Comment text={"hola"} showComment={true}/>   
+      </div>
 
-        <div className='rightSidebar'>
-            <RightSidebar></RightSidebar>
-        </div>
+      <div className='rightSidebar'>
+        <RightSidebar></RightSidebar>
+      </div>
     </div>
   );
 }

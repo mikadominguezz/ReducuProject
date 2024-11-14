@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
+import BackButton from '../Components/BackButton';
 
 function MakePost({ initialImage, initialText }) {
     const [text, setText] = useState(initialText || "");
@@ -18,6 +19,7 @@ function MakePost({ initialImage, initialText }) {
             <div className='main'>
                 {/* Title */}
                 <div className='title'>
+                    <BackButton/>
                     <h2>Make a Post/Comment</h2>
                 </div>
 
@@ -59,7 +61,7 @@ function MakePost({ initialImage, initialText }) {
                                     className="form-control"
                                     rows="9"
                                     value={text}
-                                    onChange={(e) => setText(e.target.value)} // Manejo del texto
+                                    onChange={(e) => setText(e.target.value)}
                                 />
                             </div>
                         </div>
@@ -85,7 +87,7 @@ function MakePost({ initialImage, initialText }) {
                                         padding: '0.5rem'
                                     }}
                                     value={image}
-                                    onChange={(e) => setImage(e.target.value)} // Manejo de la URL
+                                    onChange={(e) => setImage(e.target.value)}
                                 />
                             )}
                         </div>

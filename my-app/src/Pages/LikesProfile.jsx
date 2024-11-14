@@ -2,6 +2,7 @@ import React from 'react';
 import Header from "../Components/Header";
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
+import BackButton from '../Components/BackButton';
 
 function LikesProfile() {
   return (
@@ -13,6 +14,7 @@ function LikesProfile() {
         {/* Main */}
         <div className='main'>
             <div className='title'>
+                <BackButton/>
                 <h2>Things You've Liked</h2>
             </div>
         </div>
