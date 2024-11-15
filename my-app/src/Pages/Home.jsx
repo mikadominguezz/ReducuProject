@@ -6,6 +6,7 @@ import '../Components/Style.css';
 import Comment from '../Components/Comment';
 import {posts} from '../Data/hardCoded';
 import BackButton from '../Components/BackButton';
+import PageLayout from '../Components/PageLayout';
 
 function Home() {
   //const [posts, setPosts] = useState(posts);
@@ -14,31 +15,14 @@ function Home() {
     console.log('posts', posts)
   },[])
   return (
-    <div className='webGeneral'>
-      {/* IMPLEMENTAR STYLE */}
-      
-      {/* Header */}
-      <Header/>
-
-      {/* Menu options */}
-      <Menu/>
-      
-      {/* Main */}
+    <PageLayout>
       <div className='main'>
         <div className='title'>
           <BackButton/>
           <h2>Home</h2>
         </div>
-        {/* IMPLEMENTAR CHILDREN */}
-        {/* van a aparecer todos los posts */}
       </div>
-
-      {/* Right Sidebar */}
-      <div className='rightSidebar'>
-        <RightSidebar/>
-      </div>
-      
-    </div>
+    </PageLayout>
   );
 }
 

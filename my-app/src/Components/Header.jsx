@@ -49,7 +49,7 @@ function Header() {
                 marginTop: "1rem",
                 marginRight:"20px"
                 }}>
-                <button className="visibleButtons" onClick={() => logout({ returnTo: window.location.origin })}>
+                <button className="visibleButton" onClick={() => logout({ returnTo: window.location.origin })}>
                     Sign out
                 </button>
             </div>

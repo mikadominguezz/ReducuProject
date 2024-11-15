@@ -26,11 +26,8 @@ function Comment({ imageUrl, text, showComment }) {
                 justifyContent: 'center',
                 paddingTop: "10px"
             }}>
-                <button className="btn btn-primary"
+                <button className="nonvisibleButton"
                     style={{
-                        display: 'flex',
-                        background: 'none',
-                        border: 'none',
                         paddingRight: "10px"
                     }}>
                     <img 

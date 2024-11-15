@@ -11,9 +11,9 @@
 
 .title {
     display: flex;
-    align-items: center; /* Alinea los elementos verticalmente */
-    justify-content: center; /* Centra el título */
-    position: relative; /* Necesario para posicionar el botón */
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
   
 .backButton {
@@ -60,7 +60,7 @@
     align-items: end;
 }
 
-.visibleButtons{
+.visibleButton{
     font-family: Open Sans, sans-serif;
     background: #173363;
     padding: 10px;
@@ -68,4 +68,20 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.nonvisibleButton{
+    background: none;
+    border: none;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 30rem;
 }

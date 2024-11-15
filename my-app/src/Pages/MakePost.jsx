@@ -29,60 +29,33 @@ function MakePost({ initialImage, initialText }) {
                     alignItems: 'center',
                     paddingTop: "15px"
                 }}>
-                    <div style={{
-                        border: '2px solid black',
-                        borderRadius: '10px',
+                    <div className='box' style={{
                         width: '35rem',
                         height: '32rem'
                     }}>
                         <h2 style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            fontWeight: '550',
-                            paddingTop: '10px'
+                            fontWeight: '550'
                         }}>
                             NEW POST
                         </h2>
                         
                         {/* Add comment */}
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            paddingTop: "10px"
-                        }}>
-                            <div style={{
-                                border: '2px solid black',
-                                borderRadius: '10px',
-                                width: '30rem',
-                                height: '14.7rem'
-                            }}>
-                                <textarea
-                                    className="form-control"
-                                    rows="9"
-                                    value={text}
-                                    onChange={(e) => setText(e.target.value)}
-                                />
-                            </div>
+                        <div className='box'>
+                            <textarea
+                                className="form-control"
+                                rows="9"
+                                value={text}
+                                onChange={(e) => setText(e.target.value)}
+                            />
                         </div>
 
                         {/* Add Picture input */}
-                        <div style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            paddingTop: "10px"
-                        }}>
+                        <div>
                             {image ? (
                                 <img src={image} alt="Post" style={{ width: "30rem", height: "auto", borderRadius: '10px' }} />
                             ) : (
-                                <input
-                                    type="url"
-                                    placeholder="Enter image URL"
+                                <input className='box' type="url" placeholder="Enter image URL"
                                     style={{
-                                        border: '2px solid black',
-                                        borderRadius: '10px',
-                                        width: '30rem',
                                         height: '3rem',
                                         padding: '0.5rem'
                                     }}
@@ -94,11 +67,9 @@ function MakePost({ initialImage, initialText }) {
 
                         {/* Post button */}
                         <div style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            paddingTop: '35px'
+                            paddingTop: '20px'
                         }}>
-                            <button className="btn btn-lg text-white rounded-0 mb-3" style={{
+                            <button className="btn btn-lg text-white mb-3" style={{
                                     paddingLeft: "7rem",
                                     paddingRight: "7rem",
                                     backgroundColor: canPost ? "#173363" : "grey",
