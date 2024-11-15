@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 import BackButton from '../Components/BackButton';
+import PageLayout from '../Components/PageLayout';
 
 function MakePost({ initialImage, initialText }) {
     const [text, setText] = useState(initialText || "");
@@ -11,11 +12,7 @@ function MakePost({ initialImage, initialText }) {
     const canPost = (text && text.trim() !== "") || image;
 
     return (
-        <div className='webGeneral'>
-            <Header />
-            <Menu />
-
-            {/* Main */}
+        <PageLayout>
             <div className='main'>
                 {/* Title */}
                 <div className='title'>
@@ -82,11 +79,7 @@ function MakePost({ initialImage, initialText }) {
                     </div>
                 </div>
             </div>
-
-            <div className='rightSidebar'>
-                <RightSidebar />
-            </div>
-        </div>
+        </PageLayout>
     );
 }
 

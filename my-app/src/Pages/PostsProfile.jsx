@@ -4,16 +4,12 @@ import Menu from '../Components/Menu';
 import RightSidebar from '../Components/RightSidebar';
 import Post from '../Components/Post';
 import BackButton from '../Components/BackButton';
+import PageLayout from '../Components/PageLayout';
 
 function PostsProfile() {
 
   return (
-    <div className='webGeneral'>
-      <Header></Header>
-
-      <Menu></Menu>
-
-      {/* Main */}
+    <PageLayout>
       <div className='main'>
         <div className='title'>
             <BackButton/>
@@ -23,11 +19,7 @@ function PostsProfile() {
         {/* Box */}
         <Post></Post>
       </div>
-
-      <div className='rightSidebar'>
-          <RightSidebar></RightSidebar>
-      </div>
-    </div>
+    </PageLayout>
   );
 }
 
