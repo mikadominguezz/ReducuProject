@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const Login = () => {
+const Login = ({ onLoginClick }) => {
   const { loginWithRedirect } = useAuth0();
 
   return ( 
@@ -19,7 +19,7 @@ const Login = () => {
         <div className="col d-flex flex-column align-items-center justify-content-start" style={{marginBottom: "0px", marginBottom:"0px"}}>
           <button 
             className="btn btn-lg text-white rounded-0 mb-3"
-            onClick={() => loginWithRedirect()}
+            onClick={onLoginClick}
             style={{paddingLeft:"7rem", paddingRight:"7rem", backgroundColor: "#173363"}}
             >Login
           </button>
