@@ -1,10 +1,42 @@
-import React from 'react';
-import Post from '../Components/Post';
-import BackButton from '../Components/BackButton';
-import PageLayout from '../Components/PageLayout';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Comment from "../Components/Comment";
+import BackButton from "../Components/BackButton";
+import PageLayout from "../Components/PageLayout";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function PostsProfile({ posts }) {
+function PostsProfile() {
+  const { user, isAuthenticated } = useAuth0();
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      if (!isAuthenticated || !user?.nickname) {
+        setError("You must be logged in to view your posts.");
+        setLoading(false);
+        return;
+      }
+
+      const nickname = user.nickname; // Usa el nickname del usuario
+      console.log("Auth0 User Nickname:", nickname);
+
+      try {
+        const response = await axios.get(`http://localhost:5001/api/posts/user/${nickname}`);
+        console.log("Response from backend (posts):", response.data);
+        setPosts(response.data);
+      } catch (err) {
+        console.error("Error fetching posts:", err.response?.data || err.message);
+        setError("Failed to load posts.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, [isAuthenticated, user]);
+
   return (
     <PageLayout>
       <div className="main">
@@ -13,9 +45,21 @@ function PostsProfile({ posts }) {
           <h2>Posts You've Made</h2>
         </div>
 
-        {posts && posts.length > 0 ? (
+        {loading ? (
+          <p>Loading posts...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : posts && posts.length > 0 ? (
           posts.map((post) => (
-            <Post key={post.post_id} title={post.title} content={post.content} />
+            <Comment
+              key={post.post_id}
+              commentId={post.post_id}
+              text={post.content}
+              imageUrl={post.img} // Los posts tienen imagen
+              userImageUrl={"https://example.com/user-image.jpg"} // Imagen del usuario
+              showComment={true} // Puedes habilitar sección de comentarios si lo necesitas
+              initialLikeCount={post.likes_count}
+            />
           ))
         ) : (
           <p>You have not created any posts yet.</p>
@@ -24,15 +68,5 @@ function PostsProfile({ posts }) {
     </PageLayout>
   );
 }
-
-PostsProfile.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      post_id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default PostsProfile;

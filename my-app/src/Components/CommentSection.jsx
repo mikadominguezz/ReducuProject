@@ -1,19 +1,9 @@
 import React from 'react';
 import '../App.css';
-import Header from "./Header";
-import Menu from "./Menu";
-import RightSidebar from './RightSidebar';
 import Comment from './Comment';
 import { useNavigate } from 'react-router-dom';
 
 function CommentSection() {
-    const navigate = useNavigate();
-        
-    const handleGoBack = () => {
-        setTimeout(() => {
-            navigate("/"); // editar para que vaya a atrás si está tanto en commentsProfile o cualquier otro
-        },); 
-    };
   return (
     <div>
         {/* Main */}
@@ -24,8 +14,6 @@ function CommentSection() {
             
             {/* Comments */}
             <div>
-                <Comment showComment={false}/>
-                <Comment showComment={false}/>
                 <div style={{
                     display: 'flex',
                     justifyContent: 'center',

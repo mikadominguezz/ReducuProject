@@ -54,13 +54,15 @@ function CommentsProfile() {
         ) : comments && comments.length > 0 ? (
           comments.map((comment) => (
             <Comment
-                key={comment.comment_id}
-                commentId={comment.comment_id}
-                text={comment.content}
-                imageUrl={comment.img}
-                showComment={true}
-                initialLikeCount={comment.likes_count}
+              key={comment.comment_id}
+              commentId={comment.comment_id}
+              text={comment.content}
+              imageUrl={null} // Los comentarios no tienen imagen
+              userImageUrl={"https://example.com/user-image.jpg"} // Imagen del usuario
+              showComment={true} // Habilitar sección de comentarios
+              initialLikeCount={comment.likes_count}
             />
+
         ))
         
         ) : (
