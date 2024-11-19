@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import BackButton from '../Components/BackButton';
-import PageLayout from '../Components/PageLayout';
+import BackButton from './BackButton';
+import PageLayout from './PageLayout';
 import PropTypes from 'prop-types';
 
-function MakePost({ onSubmit }) {
+function MakePost({ onSubmit, createdBy, originalId, originalType }) {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
 
@@ -11,7 +11,16 @@ function MakePost({ onSubmit }) {
 
   const handlePost = () => {
     if (canPost) {
-      onSubmit({ text, image });
+      const postData = {
+        created_by: createdBy,
+        img: image || null,
+        original_id: originalId,
+        original_type: originalType,
+        likes_count: 0,
+        text: text.trim(),
+      };
+
+      onSubmit(postData);
       setText("");
       setImage("");
     }
@@ -94,7 +103,9 @@ function MakePost({ onSubmit }) {
 
 MakePost.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  createdBy: PropTypes.string.isRequired,
+  originalId: PropTypes.number.isRequired,
+  originalType: PropTypes.string.isRequired,
 };
 
 export default MakePost;
-
