@@ -80,7 +80,7 @@ function Comment({
         </div>
       </div>
 
-      {/*likes y comentarios*/}
+      {/* Sección de interacción (likes y comentarios) */}
       <div
         style={{
           display: "flex",
