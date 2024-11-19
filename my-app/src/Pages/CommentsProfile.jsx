@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Comment from '../Components/Comment';
 import BackButton from '../Components/BackButton';
 import PageLayout from '../Components/PageLayout';
-import PropTypes from 'prop-types';
+import { useAuth0 } from '@auth0/auth0-react';
 
-function CommentsProfile({ comments }) {
+function CommentsProfile() {
+  const { user, isAuthenticated } = useAuth0();
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      if (!isAuthenticated || !user?.nickname) {
+          setError('You must be logged in to view your comments.');
+          setLoading(false);
+          return;
+      }
+  
+      const nickname = user.nickname;
+      console.log('Auth0 User Nickname:', nickname);
+  
+      try {
+          const response = await axios.get(`http://localhost:5001/api/comments/user/${nickname}`);
+          console.log('Response from backend:', response.data);
+          setComments(response.data);
+      } catch (err) {
+          console.error('Error fetching comments:', err.response?.data || err.message);
+          setError('Failed to load comments.');
+      } finally {
+          setLoading(false);
+      }
+    };
+  
+
+    fetchComments();
+}, [isAuthenticated, user]);
+
+
   return (
     <PageLayout>
       <div className="main">
@@ -13,14 +47,22 @@ function CommentsProfile({ comments }) {
           <h2>Comments You've Made</h2>
         </div>
 
-        {comments && comments.length > 0 ? (
+        {loading ? (
+          <p>Loading comments...</p>
+        ) : error ? (
+          <p>{error}</p>
+        ) : comments && comments.length > 0 ? (
           comments.map((comment) => (
             <Comment
-              key={comment.comment_id}
-              text={comment.content}
-              showComment={true}
+                key={comment.comment_id}
+                commentId={comment.comment_id}
+                text={comment.content}
+                imageUrl={comment.img}
+                showComment={true}
+                initialLikeCount={comment.likes_count}
             />
-          ))
+        ))
+        
         ) : (
           <p>You have not commented on any posts yet.</p>
         )}
@@ -28,14 +70,5 @@ function CommentsProfile({ comments }) {
     </PageLayout>
   );
 }
-
-CommentsProfile.propTypes = {
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      comment_id: PropTypes.number.isRequired,
-      content: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default CommentsProfile;

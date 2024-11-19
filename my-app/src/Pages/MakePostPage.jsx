@@ -4,7 +4,7 @@ import AxiosUser from '../Utils/AxiosUser';
 
 function MakePostPage() {
     const handleSubmit = async (postData) => {
-        console.log('Datos enviados al backend:', postData); // Log para depurar
+        console.log('Datos enviados al backend:', postData);
         try {
             const response = await AxiosUser.post('/comments', postData);
             console.log('Respuesta del servidor:', response.data);
