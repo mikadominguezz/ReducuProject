@@ -4,32 +4,41 @@ import Menu from "../Components/Menu";
 import RightSidebar from '../Components/RightSidebar';
 import Comment from '../Components/Comment';
 import BackButton from '../Components/BackButton';
-import { start } from '@popperjs/core';
+import PageLayout from '../Components/PageLayout';
+import PropTypes from 'prop-types';
 
-function CommentsProfile() {
-    
+function CommentsProfile({ comments }) {
   return (
-    <div className='webGeneral'>
-      <Header></Header>
-
-      <Menu></Menu>
-
-      {/* Main */}
-      <div className='main'>
-        <div className='title'>
-          <BackButton/>
+    <PageLayout>
+      <div className="main">
+        <div className="title">
+          <BackButton />
           <h2>Comments You've Made</h2>
         </div>
-          
-        {/* Comments */}
-        <Comment text={"hola"} showComment={true}/>   
-      </div>
 
-      <div className='rightSidebar'>
-        <RightSidebar></RightSidebar>
+        {comments && comments.length > 0 ? (
+          comments.map((comment) => (
+            <Comment
+              key={comment.comment_id}
+              text={comment.content}
+              showComment={true}
+            />
+          ))
+        ) : (
+          <p>You have not commented on any posts yet.</p>
+        )}
       </div>
-    </div>
+    </PageLayout>
   );
 }
+
+CommentsProfile.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      comment_id: PropTypes.number.isRequired,
+      content: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
 
 export default CommentsProfile;
