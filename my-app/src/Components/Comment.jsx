@@ -20,15 +20,14 @@ function Comment({ imageUrl, text, commentId, showComment, initialLikeCount }) {
                 await axios.post(`http://localhost:5001/api/comments/like/${commentId}`);
                 setLikeCount(prevCount => prevCount + 1);
             } else {
-                // Opcional: Implementar unlike si es necesario
                 await axios.post(`http://localhost:5001/api/comments/unlike/${commentId}`);
-                setLikeCount(prevCount => prevCount - 1);
+                setLikeCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
             }
             setActive(!active);
         } catch (error) {
-            console.error("Error al actualizar el like:", error);
+            console.error("Error al actualizar el like/unlike:", error);
         }
-    };
+    };    
 
     return (
         <div>
