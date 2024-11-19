@@ -1,7 +1,4 @@
 import React from 'react';
-import Header from "../Components/Header";
-import Menu from "../Components/Menu";
-import RightSidebar from '../Components/RightSidebar';
 import Comment from '../Components/Comment';
 import BackButton from '../Components/BackButton';
 import PageLayout from '../Components/PageLayout';
