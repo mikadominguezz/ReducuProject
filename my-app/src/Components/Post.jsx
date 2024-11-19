@@ -1,15 +1,20 @@
-import React from "react";
-import Comment from "./Comment";
+import React from 'react';
+import Comment from './Comment';
+import CommentSection from './CommentSection';
 
-function Post({ postId, imageUrl, text, initialLikeCount }) {
+function Post({ postId, text, imageUrl, initialLikeCount }) {
   return (
-    <Comment
-      commentId={postId} // Pasa el ID del post al componente Comment
-      imageUrl={imageUrl} // Asegúrate de que todos los posts tengan una imagen
-      text={text} // Pasa el contenido del post
-      showComment={false} // Desactiva la sección de comentarios en los posts
-      initialLikeCount={initialLikeCount} // Pasa el número inicial de likes
-    />
+    <div>
+      <Comment
+        text={text}
+        imageUrl={imageUrl}
+        commentId={postId}
+        showComment={true}
+        initialLikeCount={initialLikeCount}
+      />
+      {/* Comment Section para cada post */}
+      <CommentSection parentId={postId} isPost={true} />
+    </div>
   );
 }
 

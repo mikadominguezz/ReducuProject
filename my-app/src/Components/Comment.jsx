@@ -128,10 +128,9 @@ function Comment({
 
       {/* Sección de comentarios */}
       {showCommentSection && (
-        <div style={{ paddingTop: "1rem" }}>
-          <CommentSection />
-        </div>
-      )}
+        <CommentSection parentId={commentId} isPost={false} />
+        )}
+
     </div>
   );
 }
