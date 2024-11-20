@@ -45,7 +45,7 @@ function Comment({ imageUrl, text, showComment }) {
                 <div style={{
                     border: '2px solid black',
                     borderRadius:'10px',
-                    width: '35rem',
+                    width: '30rem',
                     height: 'auto'
                 }}>
                     <div style={{
@@ -70,7 +70,7 @@ function Comment({ imageUrl, text, showComment }) {
             {/* Likes & Comment(s) */}
             <div style={{
                 display: "flex",
-                paddingLeft: "19rem",
+                paddingLeft: "5rem",
                 gap: "0.5rem",
                 alignItems: "center"
             }}>
