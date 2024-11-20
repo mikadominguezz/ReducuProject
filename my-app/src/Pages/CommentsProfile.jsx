@@ -4,7 +4,6 @@ import Menu from "../Components/Menu";
 import RightSidebar from '../Components/RightSidebar';
 import Comment from '../Components/Comment';
 import BackButton from '../Components/BackButton';
-import { start } from '@popperjs/core';
 
 function CommentsProfile() {
     

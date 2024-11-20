@@ -28,9 +28,6 @@ function App() {
           <Route path="/comments" element={<CommentsProfile />} />
           <Route path="/makePost" element={<MakePost />} />
         </Routes>
-        <button onClick={() => logout({ returnTo: window.location.origin })}>
-          Logout
-        </button>
       </div>
     </Router>
   );

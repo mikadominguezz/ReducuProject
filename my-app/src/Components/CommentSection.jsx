@@ -37,14 +37,14 @@ function CommentSection() {
                         width: '35rem',
                         height: '7.2rem'
                     }}>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                        <textarea className="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
                     </div>
 
                     <button style={{
                         background: 'none',
                         border: 'none'
                     }}>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#173363" stroke-linecap="round" stroke-linejoin="round" width="30" height="30" stroke-width="2"> <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path> </svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#173363" strokeLinecap="round" strokeLinejoin="round" width="30" height="30" strokeWidth="2"> <path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"></path> </svg> 
                     </button>
                 </div>
             </div>

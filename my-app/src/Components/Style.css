@@ -8,7 +8,37 @@
     padding: 0;
     box-sizing: border-box;
 }  
-
+.posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .post {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .post p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
 .title {
     display: flex;
     align-items: center;
