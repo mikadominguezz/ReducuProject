@@ -6,8 +6,7 @@ import Home from './Pages/Home';
 import LikesProfile from './Pages/LikesProfile';
 import PostsProfile from './Pages/PostsProfile';
 import CommentsProfile from './Pages/CommentsProfile';
-import MakePostPage from './Pages/MakePostPage';
-
+import MakePost from './Pages/MakePost';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
@@ -27,7 +26,7 @@ function App() {
           <Route path="/likes" element={<LikesProfile />} />
           <Route path="/posts" element={<PostsProfile />} />
           <Route path="/comments" element={<CommentsProfile />} />
-          <Route path="/makePost" element={<MakePostPage />} />
+          <Route path="/makePost" element={<MakePost />} />
         </Routes>
         <button onClick={() => logout({ returnTo: window.location.origin })}>
           Logout
