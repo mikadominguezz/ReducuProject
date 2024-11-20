@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts, getPostsByUserId } from '../Utils/axiosClient';
+import { getAllPosts, getPostsByUserId, deletePost } from '../Utils/axiosClient';
 import '../Components/Style.css';
 import CommentSection from './CommentSection';
 
@@ -29,6 +29,17 @@ function Post({ userId }) {
 
     const toggleCommentSection = (postId) => {
         setOpenCommentSectionPostId((prevPostId) => (prevPostId === postId ? null : postId));
+    };
+
+    const handleDelete = async (postId) => {
+        try {
+            await deletePost(postId);
+            setPosts((prevPosts) => prevPosts.filter((post) => post.post_id !== postId));
+            alert('Post eliminado exitosamente.');
+        } catch (err) {
+            console.error('Error al eliminar el post:', err);
+            alert('No se pudo eliminar el post. Inténtalo nuevamente.');
+        }
     };
 
     return (
@@ -70,6 +81,20 @@ function Post({ userId }) {
                             </button>
                         </div>
 
+                        {/* Botón para eliminar el post */}
+                        <div style={{ marginTop: '10px' }}>
+                            <button
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    padding: '5px 10px',
+                                    borderRadius: '5px',
+                                }}
+                                onClick={() => handleDelete(post.post_id)}
+                            >
+                                Eliminar Post
+                            </button>
+                        </div>
+
                         {/* Mostrar CommentSection solo si el ID coincide */}
                         {openCommentSectionPostId === post.post_id && (
                             <div style={{ paddingTop: '1rem' }}>
@@ -86,4 +111,3 @@ function Post({ userId }) {
 }
 
 export default Post;
-

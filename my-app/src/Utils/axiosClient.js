@@ -16,6 +16,17 @@ export const createPost = async (postData) => {
   }
 };
 
+// Función para eliminar un post por su ID
+export const deletePost = async (postId) => {
+  try {
+    const response = await axiosClient.delete(`/api/posts/${postId}`);
+    return response.data; // Devuelve el mensaje de éxito
+  } catch (error) {
+    console.error('Error al eliminar el post:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // Función para obtener todos los posts
 export const getAllPosts = async () => {
   try {
