@@ -5,6 +5,17 @@ const axiosClient = axios.create({
   baseURL: 'http://localhost:5001',
 });
 
+// Función para crear un nuevo post
+export const createPost = async (postData) => {
+  try {
+    const response = await axiosClient.post('/api/posts', postData);
+    return response.data; // Devuelve los datos del post creado
+  } catch (error) {
+    console.error('Error al crear el post:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // Función para obtener todos los posts
 export const getAllPosts = async () => {
   try {
@@ -26,6 +37,16 @@ export const getPostsByUserId = async (userId) => {
 }
 };
 
+export const likePost = async (postId, likedBy) => {
+  try {
+    const response = await axiosClient.post(`/api/posts/${postId}/like`, { liked_by: likedBy });
+    return response.data;
+  } catch (error) {
+    console.error('Error al dar like al post:', error.response?.data || error.message);
+    throw error;
+  }
+};
+
 // Función para obtener comentarios por nombre de usuario
 export const getCommentsByUsername = async (username) => {
   try {
@@ -36,7 +57,6 @@ export const getCommentsByUsername = async (username) => {
     throw error;
   }
 };
-
 
 // Función para obtener comentarios por postId
 export const getCommentsByPostId = async (postId) => {

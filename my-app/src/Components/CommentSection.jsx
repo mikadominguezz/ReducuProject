@@ -7,16 +7,13 @@ function CommentSection({ postId, username }) {
   const [newComment, setNewComment] = useState('');
   const [error, setError] = useState(null);
 
-  // Función para obtener comentarios según `postId` o `username`
   useEffect(() => {
     const fetchComments = async () => {
       try {
         let data;
         if (postId) {
-          // Obtener comentarios por `postId`
           data = await getCommentsByPostId(postId);
         } else if (username) {
-          // Obtener comentarios por `username`
           data = await getCommentsByUsername(username);
         }
         setComments(data); // Actualizamos el estado con los datos recibidos
@@ -26,7 +23,7 @@ function CommentSection({ postId, username }) {
       }
     };
 
-    // Llamar a la función si tenemos `postId` o `username`
+    // Llamar a la función si tenemos postId o username
     if (postId || username) {
       fetchComments();
     }
