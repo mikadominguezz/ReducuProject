@@ -11,15 +11,19 @@
 .posts {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
   }
   
   .post {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    gap: 1rem;
+    padding: 8px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 38rem;
+    font-family: Open Sans, sans-serif;
   }
   
   .post h3 {

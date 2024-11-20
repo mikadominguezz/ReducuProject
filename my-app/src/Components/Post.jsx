@@ -1,15 +1,75 @@
-import React, { useState } from 'react';
-import Heart from "react-heart";
-import Comment from './Comment';
+import React, { useState, useEffect } from 'react';
+import { getAllPosts, getPostsByUserId } from '../Utils/axiosClient';
+import '../Components/Style.css';
+import CommentSection from './CommentSection';
 
-function Post() {
-    const [active, setActive] = useState(false);
+function Post({ userId }) {
+    const [posts, setPosts] = useState([]);
+    const [error, setError] = useState(null);
+    const [showCommentSection, setShowCommentSection] = useState(false);
+    const toggleCommentSection = () => {
+        setShowCommentSection(!showCommentSection);
+    };
 
-    return (
-        <div>
-            <Comment imageUrl={"/Images/IMG_8262602D684D-1.jpeg"} showComment={true} />
-        </div>
-    );
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        let postsData;
+        if (userId) {
+          postsData = await getPostsByUserId(userId);
+        } else {
+          postsData = await getAllPosts();
+        }
+        setPosts(postsData);
+      } catch (err) {
+        console.error('Error fetching posts:', err);
+        setError('Error al cargar los posts');
+      }
+    };
+
+    fetchPosts();
+  }, [userId]);
+
+  return (
+    <div className="posts">
+      {error ? (
+        <p>{error}</p>
+      ) : Array.isArray(posts) && posts.length > 0 ? (
+        posts.map((post) => (
+          <div key={post.post_id} className="post">
+            <h3>{post.content}</h3>
+            {post.img && <img src={post.img} alt="Post" />}
+            <p>Author: {post.created_by}</p>
+            <p>Likes: {post.likes_count}</p>
+                <div>
+                    <button
+                        style={{
+                            border: "none",
+                            background: "transparent"
+                        }}
+                        onClick={toggleCommentSection}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-message-circle" width="40" height="40" viewBox="0 0 24 24" strokeWidth="1" stroke="#000000" fill="none" strokeLinecap="round" strokeLinejoin="round"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                        </svg>
+                    </button>
+                </div>
+                {showCommentSection && (
+                    <div style={{ paddingTop: '1rem' }}>
+                        <CommentSection postId={post.post_id} />
+                    </div>
+                )}
+
+          </div>
+        ))
+      ) : (
+        <p>No hay posts disponibles</p>
+      )}
+    </div>
+  );
 }
 
 export default Post;
