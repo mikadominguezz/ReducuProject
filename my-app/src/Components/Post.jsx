@@ -49,6 +49,19 @@ function Post({ userId }) {
             ) : Array.isArray(posts) && posts.length > 0 ? (
                 posts.map((post) => (
                     <div key={post.post_id} className="post">
+                        {/* Botón para eliminar el post */}
+                        <div style={{ marginTop: '10px', paddingBottom: '10px'}}>
+                            <button
+                                style={{
+                                    backgroundColor: 'transparent',
+                                    padding: '5px',
+                                    borderRadius: '5px'
+                                }}
+                                onClick={() => handleDelete(post.post_id)}
+                            >
+                                Eliminar Post
+                            </button>
+                        </div>
                         <h3>{post.content}</h3>
                         {post.img && <img src={post.img} alt="Post" />}
                         <p>Author: {post.created_by}</p>
@@ -81,19 +94,6 @@ function Post({ userId }) {
                             </button>
                         </div>
 
-                        {/* Botón para eliminar el post */}
-                        <div style={{ marginTop: '10px' }}>
-                            <button
-                                style={{
-                                    backgroundColor: 'transparent',
-                                    padding: '5px 10px',
-                                    borderRadius: '5px',
-                                }}
-                                onClick={() => handleDelete(post.post_id)}
-                            >
-                                Eliminar Post
-                            </button>
-                        </div>
 
                         {/* Mostrar CommentSection solo si el ID coincide */}
                         {openCommentSectionPostId === post.post_id && (
