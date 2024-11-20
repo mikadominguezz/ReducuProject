@@ -26,6 +26,18 @@ export const getPostsByUserId = async (userId) => {
 }
 };
 
+// Función para obtener comentarios por nombre de usuario
+export const getCommentsByUsername = async (username) => {
+  try {
+    const response = await axiosClient.get(`/api/comments/user/${username}`);
+    return response.data; // Devuelve los datos recibidos
+  } catch (error) {
+    console.error('Error en la solicitud Axios:', error.response || error.message);
+    throw error;
+  }
+};
+
+
 // Función para obtener comentarios por postId
 export const getCommentsByPostId = async (postId) => {
   try {
@@ -36,7 +48,6 @@ export const getCommentsByPostId = async (postId) => {
     throw error;
   }
 };
-
 
 // Función para crear un nuevo comentario
 export const createComment = async (commentData) => {
@@ -59,6 +70,5 @@ export const deleteComment = async (commentId) => {
     throw error;
   }
 };
-
 
 export default axiosClient;
