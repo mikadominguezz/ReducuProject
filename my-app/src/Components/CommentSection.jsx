@@ -1,33 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Comment from './Comment';
 import { getCommentsByPostId, getCommentsByUsername, createComment, deleteComment } from '../Utils/axiosClient';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function CommentSection({ postId, username }) {
+  const { user } = useAuth0(); // Extrae el usuario autenticado
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        let data;
-        if (postId) {
-          data = await getCommentsByPostId(postId);
-        } else if (username) {
-          data = await getCommentsByUsername(username);
-        }
-        setComments(data); // Actualizamos el estado con los datos recibidos
-      } catch (err) {
-        console.error('Error al cargar los comentarios:', err);
-        setError('No se pudieron cargar los comentarios.');
-      }
-    };
-
-    // Llamar a la función si tenemos postId o username
-    if (postId || username) {
-      fetchComments();
-    }
-  }, [postId, username]);
 
   // Función para crear un nuevo comentario
   const handleCommentSubmit = async () => {
@@ -36,17 +16,22 @@ function CommentSection({ postId, username }) {
       return;
     }
 
+    if (!user) {
+      alert('Debes iniciar sesión para comentar.');
+      return;
+    }
+
     try {
       const commentData = {
         post_id: postId,
-        created_by: 'Usuario actual', // Cambia esto por el usuario actual (puedes extraerlo de un contexto o estado global)
+        created_by: user.name, // Aquí se usa el nombre del usuario actual
         content: newComment,
-        img: null, // O lógica para manejar imágenes opcionales
+        img: null, // Cambiar según lógica de imágenes opcionales
       };
 
       const response = await createComment(commentData);
 
-      // Actualizar la lista de comentarios en el estado
+      // Actualizar la lista de comentarios
       setComments((prevComments) => [
         ...prevComments,
         {

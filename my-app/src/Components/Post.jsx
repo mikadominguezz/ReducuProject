@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllPosts, getPostsByUserId, deletePost } from '../Utils/axiosClient';
+import { getAllPosts, getPostsByUserId, deletePost, likePost } from '../Utils/axiosClient';
 import '../Components/Style.css';
 import CommentSection from './CommentSection';
 
@@ -42,6 +42,25 @@ function Post({ userId }) {
         }
     };
 
+    const handleLike = async (postId) => {
+        try {
+            const likedBy = "usuario_actual"; // Cambiar por el nombre o ID del usuario actual
+            await likePost(postId, likedBy);
+
+            // Actualizar la cuenta de likes en el estado
+            setPosts((prevPosts) =>
+                prevPosts.map((post) =>
+                    post.post_id === postId
+                        ? { ...post, likes_count: post.likes_count + 1 }
+                        : post
+                )
+            );
+        } catch (err) {
+            console.error('Error al dar like al post:', err);
+            alert('No se pudo dar like al post. Inténtalo nuevamente.');
+        }
+    };
+
     return (
         <div className="posts">
             {error ? (
@@ -50,12 +69,12 @@ function Post({ userId }) {
                 posts.map((post) => (
                     <div key={post.post_id} className="post">
                         {/* Botón para eliminar el post */}
-                        <div style={{ marginTop: '10px', paddingBottom: '10px'}}>
+                        <div style={{ marginTop: '10px', paddingBottom: '10px' }}>
                             <button
                                 style={{
                                     backgroundColor: 'transparent',
                                     padding: '5px',
-                                    borderRadius: '5px'
+                                    borderRadius: '5px',
                                 }}
                                 onClick={() => handleDelete(post.post_id)}
                             >
@@ -66,6 +85,23 @@ function Post({ userId }) {
                         {post.img && <img src={post.img} alt="Post" />}
                         <p>Author: {post.created_by}</p>
                         <p>Likes: {post.likes_count}</p>
+
+                        {/* Botón para dar like */}
+                        <div>
+                            <button
+                                style={{
+                                    backgroundColor: '#0d6efd',
+                                    color: 'white',
+                                    padding: '5px 10px',
+                                    border: 'none',
+                                    borderRadius: '5px',
+                                    marginTop: '5px',
+                                }}
+                                onClick={() => handleLike(post.post_id)}
+                            >
+                                Like
+                            </button>
+                        </div>
 
                         {/* Botón para abrir/cerrar el CommentSection */}
                         <div>
@@ -93,7 +129,6 @@ function Post({ userId }) {
                                 </svg>
                             </button>
                         </div>
-
 
                         {/* Mostrar CommentSection solo si el ID coincide */}
                         {openCommentSectionPostId === post.post_id && (

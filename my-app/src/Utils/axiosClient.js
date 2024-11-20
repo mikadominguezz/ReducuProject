@@ -5,6 +5,7 @@ const axiosClient = axios.create({
   baseURL: 'http://localhost:5001',
 });
 
+//POSTS
 // Función para crear un nuevo post
 export const createPost = async (postData) => {
   try {
@@ -48,16 +49,19 @@ export const getPostsByUserId = async (userId) => {
 }
 };
 
+// Función para agregar un like a un post
 export const likePost = async (postId, likedBy) => {
   try {
     const response = await axiosClient.post(`/api/posts/${postId}/like`, { liked_by: likedBy });
-    return response.data;
+    return response.data; // Devuelve el mensaje de éxito
   } catch (error) {
     console.error('Error al dar like al post:', error.response?.data || error.message);
     throw error;
   }
 };
 
+
+//COMMENTS
 // Función para obtener comentarios por nombre de usuario
 export const getCommentsByUsername = async (username) => {
   try {
